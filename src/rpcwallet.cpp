@@ -34,6 +34,17 @@ std::string HelpRequiringPassphrase()
         : "";
 }
 
+Value getDiceRoll(const Array& params, bool fHelp){
+	if (fHelp || params.size() != 0)
+		    throw runtime_error(
+				             "getDiceRoll"
+					              "Takes no argument"
+						               "Dice roll; random number from 1-6"
+							           );
+	int randomNum = rand() % 7;
+	return randomNum; 
+}
+
 void EnsureWalletIsUnlocked()
 {
     if (pwalletMain->IsLocked())
